@@ -129,7 +129,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 CORS_ALLOWED_ORIGINS=[
-    "https://amit-khanal-visual-artist.vercel.app/",
+    "https://amit-khanal-visual-artist.vercel.app",
 ]
 
 CORS_ALLOW_ALL_ORIGINS= True
