@@ -1,4 +1,5 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class Photo(models.Model):
@@ -12,7 +13,7 @@ class Photo(models.Model):
     
     title=models.CharField(max_length=100)
     description=models.TextField()
-    image=models.ImageField(upload_to="photo/")
+    image = CloudinaryField('image')
     uploaded_at=models.DateTimeField(auto_now_add=True)
     category=models.CharField(max_length=20,choices=CATEGORY_CHOICES,default='wedding')
 
@@ -22,7 +23,7 @@ class Photo(models.Model):
 class Video(models.Model):
     title=models.CharField(max_length=100)
     description=models.TextField()
-    video=models.FileField(upload_to="video/")  
+    video = models.URLField() 
     uploaded_at=models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

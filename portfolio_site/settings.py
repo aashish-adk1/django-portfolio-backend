@@ -11,7 +11,13 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import cloudinary
 
+cloudinary.config(
+    cloud_name='dffirtyol',
+    api_key='551863539245126',
+    api_secret='zA5Y1zA33x-8RFAvxQJZNyCOHl4'
+)
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -42,6 +48,8 @@ INSTALLED_APPS = [
     'photo',
     'rest_framework',
     'corsheaders',
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -133,4 +141,9 @@ CORS_ALLOWED_ORIGINS=[
     "https://amit-khanal-visual-artist.vercel.app",
 ]
 
-CORS_ALLOW_ALL_ORIGINS = True
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL = 'aashish.adk156@gmail.com'
